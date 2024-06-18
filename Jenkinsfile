@@ -6,13 +6,13 @@ pipeline {
             agent {
                 docker {
                     image 'ubuntu'
-                    reuseNode true
                 }
             }
             steps {
                 echo 'Hello World from docker container'
                 sh '''
                 cat /etc/os-release > /tmp/output.txt
+                cat /tmp/output.txt
                 '''
             }
         }
@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo 'Hello World from github'
                 sh '''
+                ls /var > output.txt
                 cat /tmp/output.txt
                 '''
             }
