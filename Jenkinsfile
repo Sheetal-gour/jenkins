@@ -6,7 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'ubuntu'
-                    resueNode true
+                    reuseNode true
                 }
             }
             steps {
