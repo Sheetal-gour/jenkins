@@ -21,9 +21,7 @@ pipeline {
             steps {
                 echo 'Hello World from github'
                 sh '''
-                ls /var
-                
-                touch file.json
+                cat raw.txt
                 '''
             }
         }
