@@ -20,8 +20,9 @@ pipeline {
             steps {
                 echo 'Hello World from github'
                 sh '''
-                ls /var > /tmp/output.txt
-                cat /tmp/output.txt
+                ls /var
+                
+                touch file.json
                 '''
             }
         }
