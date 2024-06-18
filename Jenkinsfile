@@ -2,22 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World from github'
-            }
-        }
-        stage('Docker') {
+         stage('Docker') {
             agent {
                 docker {
                     image 'ubuntu'
+                    reuseNode true
                 }
             }
             steps {
                 echo 'Hello World from docker container'
                 sh '''
-                cat /etc/os-release
+                cat /etc/os-release > /tmp/output.txt
                 '''
+            }
+        }
+        stage('Hello') {
+            steps {
+                echo 'Hello World from github'
+                cat /tmp/output.txt
             }
         }
     }
